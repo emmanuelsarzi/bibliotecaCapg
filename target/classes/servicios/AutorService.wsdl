@@ -4,6 +4,12 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/AutorService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="consultarAutorWS">
+<part name="parameters" element="tns:consultarAutorWS"/>
+</message>
+<message name="consultarAutorWSResponse">
+<part name="parameters" element="tns:consultarAutorWSResponse"/>
+</message>
 <message name="agregarAutorWS">
 <part name="parameters" element="tns:agregarAutorWS"/>
 </message>
@@ -11,6 +17,10 @@
 <part name="parameters" element="tns:agregarAutorWSResponse"/>
 </message>
 <portType name="AutorService">
+<operation name="consultarAutorWS">
+<input wsam:Action="http://servicios/AutorService/consultarAutorWSRequest" message="tns:consultarAutorWS"/>
+<output wsam:Action="http://servicios/AutorService/consultarAutorWSResponse" message="tns:consultarAutorWSResponse"/>
+</operation>
 <operation name="agregarAutorWS">
 <input wsam:Action="http://servicios/AutorService/agregarAutorWSRequest" message="tns:agregarAutorWS"/>
 <output wsam:Action="http://servicios/AutorService/agregarAutorWSResponse" message="tns:agregarAutorWSResponse"/>
@@ -18,6 +28,15 @@
 </portType>
 <binding name="AutorServicePortBinding" type="tns:AutorService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="consultarAutorWS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="agregarAutorWS">
 <soap:operation soapAction=""/>
 <input>
