@@ -27,9 +27,21 @@ public class AutorService {
 		return true;
 	}
 	
-	@WebMethod(operationName = "consultarAutorWS")
-	public List<Autor> consultarAutores(){
+	@WebMethod(operationName="consultarAutoresWS")
+	public List<Autor> consultarAutores() {
 		AutorDAO dao = new AutorDAO();
-		return dao.consultarAutores();
+		List<Autor> autores = null;
+		try {
+			autores = dao.consultarAutores();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		for(Autor a : autores) {
+			System.out.println(a.getNombre());
+			System.out.println(a.getNacionalidad());
+			System.out.println(a.getFechaDeNacimiento());
+		}
+		return autores;
 	}
 }

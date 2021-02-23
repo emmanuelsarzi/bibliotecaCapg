@@ -22,7 +22,7 @@ public class AutorDAO {
 		em.close();
 	}
 	
-	public List<Autor> consultarAutores(){
+	public List consultarAutores(){
 		EntityManager em = managerFactory.createEntityManager();
 		Autor autor = em.find(Autor.class, "nombre");
 		return (em.createQuery("select a from Autor a").getResultList());
