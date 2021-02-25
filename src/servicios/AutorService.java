@@ -37,11 +37,6 @@ public class AutorService {
 			e.printStackTrace();
 			return null;
 		}
-		for(Autor a : autores) {
-			System.out.println(a.getNombre());
-			System.out.println(a.getNacionalidad());
-			System.out.println(a.getFechaDeNacimiento());
-		}
 		return autores;
 	}
 }
